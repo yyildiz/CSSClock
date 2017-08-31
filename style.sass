@@ -1,0 +1,413 @@
+@keyframes come-down
+    0%
+        transform: translateY(-200px) translateX(100px)
+    50%
+        transform: translateY(0) translateX(100px)
+    100%
+        transform: translateX(100px)
+@keyframes spin
+    0%
+        transform: rotate(0)
+    100%
+        transform: rotate(360deg)
+@keyframes spin-minute
+    0%
+        transform: rotate(125deg)
+    100%
+        transform: rotate(485deg)
+@keyframes spin-hour
+    0%
+        transform: rotate(270deg)
+    100%
+        transform: rotate(630deg)
+body
+    padding-top: 50px
+    background-color: #F7F7F5
+    font-family: 'Josefin Sans', sans-serif
+.author
+    height: 50px
+    width: 300px
+    background: red
+    margin: 0 auto
+    background: #E0363F
+    position: relative
+    border-radius: 20px
+    color: white
+    display: flex
+    align-items: center
+    justify-content: center
+    font-size: 20px
+    transform: translateX(100px)
+    animation: come-down 1s forwards
+    a
+        text-decoration: none
+        color: white
+        font-weight: bold
+    &:before
+        content: ""
+        position: absolute
+        width: 0
+        height: 0 
+        border-left: 20px solid transparent
+        border-right: 20px solid transparent
+        border-top: 15px solid #E0363F
+        bottom: -12px
+        left: 30px
+        
+.clock
+    height: 350px
+    width: 350px
+    background: white
+    margin: 130px auto 0
+    border-radius: 50%
+    position: relative
+    border: 40px solid #E0363F
+    box-sizing: border-box
+    &:before, &:after
+        content: ""
+        position: absolute
+        border: 10px solid #292933
+        border-radius: 50%
+    &:before
+        top: -1px
+        left: -1px
+        bottom: -1px
+        right: -1px
+    &:after
+        top: -40px
+        left: -40px
+        bottom: -40px
+        right: -40px
+    #inner-glaze-top
+        position: absolute
+        left: -65px
+        top: -65px
+    .shadow
+        position: absolute
+        
+        width: calc(100% + 60px)
+        height: calc(100% + 60px)
+        left: -30px
+        top: -30px
+        border-radius: 50%
+        border-bottom: 20px solid #A9323B
+        box-sizing: border-box
+    .glaze-corner
+        position: absolute
+        width: 10px
+        height: 10px
+        background: #F09B9F
+        border-radius: 50%
+        
+    .one
+        top: 29px
+        left: 19px
+    .two
+        top: 9px
+        left: 41px
+    .three
+        top: -7px
+        left: 70px
+    .four
+        top: 42px
+        right: 8px
+        
+           
+    .inner-decoration
+        width: 34px
+        height: 10px
+        background: #E0363F
+        position: absolute
+        z-index: 1
+        border: 8px solid #292933
+        border-radius: 50px
+        top: 15px
+        left: calc(50% - 25px)
+    .center
+        width: 50px
+        height: 50px
+        border-radius: 50%
+        background: white
+        position: absolute
+        top: calc(50% - 32px)
+        left: calc(50% - 32px)
+        border: 7px solid #292933
+        z-index: 10
+        &:before, &:after
+            content: ""
+            position: absolute
+        &:before
+            width: 15px
+            height: 15px
+            border-radius: 50%
+            background: #E0363F
+            top: calc(50% - 7.5px)
+            left: calc(50% - 7.5px)
+            z-index: 2
+        &:after
+            width: 40px
+            height: 40px
+            border-radius: 50%
+            background: #292933
+            z-index: 1
+            top: calc(50% - 20px)
+            left: calc(50% - 20px)
+            
+            
+            
+    .second-hand
+        position: absolute
+        width: 40%
+        height: 18px
+        background: #292933
+        top: calc(50% - 9px)
+        left: 10%
+        border-radius: 50px 0 0 50px
+        z-index: 9
+        transform-origin: right
+        animation: spin 6s infinite linear
+    .hour-hand
+        position: absolute
+        width: 25%
+        height: 26px
+        background: #E0363F
+        top: calc(50% - 23px)
+        left: 17%
+        z-index: 8
+        border-radius: 50px 0 0 50px
+        border: 10px solid #292933
+        transform-origin: right
+        transform: rotate(125deg)
+        animation: spin-minute 360s infinite linear
+    .minute-hand
+        position: absolute
+        width: 32%
+        height: 13px
+        background: white
+        top: calc(50% - 19px)
+        left: 9%
+        border-radius: 50px 0 0 50px
+        border: 10px solid #292933
+        z-index: 7
+        transform-origin: right
+        transform: rotate(270deg)
+        animation: spin-hour 60s infinite linear
+    .top-button
+        width: 70px
+        height: 20px
+        position: absolute
+        border: 10px solid #292933
+        border-radius: 20px
+        background: white
+        top: -65px
+        z-index: -1
+        right: calc(50% - 45px)
+    .top
+        border: 10px solid #292933
+        width: 130px
+        height: 130px
+        z-index: -1
+        background: #3D3D4C
+        position: absolute
+        top: -50px
+        border-radius: 40% 40% 30% 0
+        &:before
+            height: 10px
+            width: 35px
+            background: #292933
+            content: ""
+            position: absolute
+            
+            border-radius: 50px
+    .change-time
+        left: -20%
+        transform: rotate(-45deg)
+        overflow: hidden
+        &:before
+            left: 45%
+            top: 10px
+        &:after
+            content: ""
+            position: absolute
+            width: 120%
+            height: 50%
+            border-radius: 50%
+            top: 30%
+            right: 5%
+            background: #33333F
+    .set-timer
+        right: -20%
+        transform: rotate(45deg)
+        overflow: hidden
+        &:before
+            left: 25%
+            top: 10px
+        &:after
+            content: ""
+            position: absolute
+            width: 120%
+            height: 40%
+            border-radius: 50%
+            top: 30%
+            background: #33333F
+    .leg
+        position: absolute
+        background: white
+        height: 45px
+        width: 30px
+        bottom: -17%
+        z-index: -1
+        border: 10px solid #292933
+        border-radius: 0 0 50% 50%
+    .left
+        left: 0
+        transform: rotate(35deg)
+        overflow: hidden
+        &:before
+            position: absolute
+            content: ""
+            width: 150%
+            height: 55%
+            background: #D3D3D5
+            transform: rotate(10deg)
+        
+    .right
+        right: 0
+        transform: rotate(-35deg)
+        overflow: hidden
+        &:before
+            position: absolute
+            content: ""
+            width: 150%
+            height: 50%
+            background: #D3D3D5
+            transform: rotate(-10deg)
+        
+    .line-bottom
+        height: 10px
+        width: 110%
+        background: #292933
+        position: absolute
+        bottom: -48px
+        left: -5%
+        border-radius: 50px
+    
+    .line-middle
+        height: 10px
+        width: 160%
+        background: #292933
+        position: absolute
+        bottom: -20px
+        left: -30%
+        border-radius: 50px
+        z-index: -2
+        &:before, &:after
+            content: ""
+            position: absolute
+            width: 20px
+            height: 10px
+            background: #292933
+            border-radius: 50px
+        &:before
+            left: -30px
+        &:after
+            right: -30px
+    
+        
+    .x
+        position: relative
+        &:before
+            content: ""
+            position: absolute
+            width: 12px
+            height: 30px
+            border-radius: 10px
+            background-color: inherit
+        &:after
+            content: ""
+            position: absolute
+            width: 30px
+            height: 12px
+            border-radius: 10px
+            background-color: inherit
+            position: absolute
+            top: 9px
+            left: -9px
+    .bottom-shadow
+        position: absolute
+        width: 140%
+        height: 160px
+        left: calc(-20%)
+        top: 85%
+        z-index: -3
+        background: #D2D2D3
+        border-radius: 50%
+    .first
+        top: -0px
+        left: -100px
+    .second
+        top: -140px
+        left: 90px
+        transform: rotate(-10deg) scale(.9)
+    .third
+        left: 360px
+        top: 100px
+        transform: rotate(15deg) scale(1.1)
+    .fourth
+        left: 300px
+        top: -70px
+        transform: rotate(15deg) scale(.9)
+    .fifth
+        left: -120px
+        top: 40px
+        transform: rotate(-25deg) scale(.8)
+    .sixth
+        left: 330px
+        top: -120px
+        transform: rotate(-25deg) scale(.9)
+    .seventh
+        top: -70px
+        left: -90px
+        transform: rotate(15deg) scale(.9)
+    .eighth
+        top: -130px
+        left: 170px
+        transform: rotate(15deg) scale(.8)
+    .ninth
+        top: -100px
+        left: -20px
+    .tenth
+        top: -150px
+        left: 30px
+        transform: scale(.8)
+    .eleventh
+        top: -90px
+        left: 190px
+        transform: scale(.9)
+    .twelth
+        top: -160px
+        left: 250px
+        transform: scale(.9)
+    .thirteenth
+        right: -100px
+        top: -20px
+        transform: scale(.8)
+    .circle
+        width: 10px
+        height: 10px
+        border-radius: 50%
+        position: absolute
+    .red
+        background-color: #F05E63
+    .grey
+        background-color: #74747E
+    .lightgrey
+        background-color: #BFBFC2
+    .lightlightgrey
+        background-color: #E8E8E7
+    .red-border
+        border: 7px solid #F05E63
+    .grey-border
+        border: 7px solid #D4D4D3
+    .lightgrey-border
+        border: 7px solid #E7E7E6
